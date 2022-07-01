@@ -27,3 +27,16 @@ exports.create = function(req, res){
         res.json(response);
     });
 }
+
+exports.find = function(req, res){
+    Usuario.find(function(err, usuarios){
+        res.json(usuarios);
+    });
+}
+
+exports.findOne = function(req, res){
+    Usuario.findOne({_id: req.params.id}, function(err, usuario){
+        res.json(usuario);
+    });
+}
+

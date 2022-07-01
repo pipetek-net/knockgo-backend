@@ -7,7 +7,7 @@ var database = require('./config/database');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var usuariosRouter = require('./routes/usuarios_routes');
+var usuariosRouter = require('./routes/usuarios_router');
 
 var app = express();
 
