@@ -4,6 +4,7 @@ let response = {
     exito: false
 }
 
+// funcion para crear un nuevo usuario
 exports.create = function(req, res){
     let usuario = new Usuario({
         nombre: req.body.nombre,
@@ -28,18 +29,21 @@ exports.create = function(req, res){
     });
 }
 
+// funcion para obtener todos los usuarios
 exports.find = function(req, res){
     Usuario.find(function(err, usuarios){
         res.json(usuarios);
     });
 }
 
+// funcion para obtener un usuario por su id
 exports.findOne = function(req, res){
     Usuario.findOne({_id: req.params.id}, function(err, usuario){
         res.json(usuario);
     });
 }
 
+//funcion para actualizar un usuario
 exports.update = function(req, res){
     let usuario = {
         nombre: req.body.nombre,
@@ -63,6 +67,7 @@ exports.update = function(req, res){
     });
 }
 
+// funcion para eliminar un usuario
 exports.remove = function(req, res){
     Usuario.findByIdAndRemove({ _id: req.params.id }, function(err){
         if(err){

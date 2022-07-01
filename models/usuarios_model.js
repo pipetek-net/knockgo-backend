@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
+// se crea el esquema de la base de datos
 const UsuariosSchema = new Schema({
     nombre: {
         type: String,
@@ -20,7 +22,7 @@ const UsuariosSchema = new Schema({
     password: {
         type: String,
         required: true,
-        max: 45
+        max: 512
     },
     telefono: {
         type: String,
@@ -33,4 +35,5 @@ const UsuariosSchema = new Schema({
     }
 });
 
+// se exporta el modelo
 module.exports = mongoose.model("usuarios", UsuariosSchema);
