@@ -4,7 +4,11 @@
 
 ```
 npm install express-generator -g
+```
+```
 express knockgo-backend
+```
+```
 cd .\knockgo-backend\
 ```
 
@@ -12,5 +16,7 @@ cd .\knockgo-backend\
 
 ```
 npm install
+```
+```
 npm start
 ```
