@@ -40,3 +40,40 @@ exports.findOne = function(req, res){
     });
 }
 
+exports.update = function(req, res){
+    let usuario = {
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        email: req.body.email,
+        password: req.body.password,
+        telefono: req.body.telefono,
+        tipo: req.body.tipo
+    };
+    Usuario.findByIdAndUpdate(req.params.id, {$set:usuario} , function(err){
+        if(err){
+            console.log(err);
+            response.exito = false;
+            response.msg = "Error al actualizar el usuario";
+            res.json(response);
+            return;
+        }
+        response.exito = true;
+        response.msg = "Usuario actualizado correctamente";
+        res.json(response);
+    });
+}
+
+exports.remove = function(req, res){
+    Usuario.findByIdAndRemove({ _id: req.params.id }, function(err){
+        if(err){
+            console.log(err);
+            response.exito = false;
+            response.msg = "Error al eliminar el usuario";
+            res.json(response);
+            return;
+        }
+        response.exito = true;
+        response.msg = "Usuario eliminado correctamente";
+        res.json(response);
+    });
+}
